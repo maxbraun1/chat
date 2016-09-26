@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="chat"><div id="welcome">Welcome to the chat.</div></div>
+    <div id="ui">
+      <form id="info">
+        <textarea placeholder="message" col="50" id="message"></textarea>
+        <div id="user-info">Max Braun (maxbraun12)</div>
+        <input type = "submit" id="send" value="Send"></input>
+        <button id="disconnect">Dissconnect</button>
+      </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../assets/jquery-dateFormat.min.js"></script>
+    <script src="../assets/socket.io.js"></script>
+    <script>
+      function hasValue(elem) {
+        return $(elem).filter(function() { return $(this).val(); }).length > 0;
+      }
+
+      $(function(){
+        var socket = io.connect("http://localhost:3000");
+        var messageForm = $("#info");
+        var message = $("#message");
+        var chat = $("#chat");
+
+        messageForm.submit(function(e){
+          e.preventDefault();
+          if(message.val() != ""){
+            socket.emit('send message', message.val());
+            console.log("A message has been submited by pressing send. var message value is: "+message.val());
+            message.val(" ");
+          }
+        });
+
+        $('#message').keyup(function(e){
+          if(e.keyCode == 13 && message.val().replace("\n", "") != ""){
+            socket.emit('send message', message.val());
+            console.log("A message has been submited by pressing enter. var message value is: ("+message.val()+")");
+            message.val("");
+          }
+          else if(e.keyCode == 13 && message.val().replace("\n", "") == ""){
+            message.val("");
+          }
+        });
+
+        socket.on('new message', function(data){
+          var date = new Date();
+          chat.append("<div class='chat-message'><div class='chat-user'>Max Braun</div><div class='chat-text'>"+data+"</div><div class='chat-date'>Sent at "+$.format.date(new Date(), 'h:mm p on dd/M/yy')+"</div></div>");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+@import 'https://fonts.googleapis.com/css?family=Varela+Round';
+*{
+  padding:0;
+  margin:0;
+  font-family: 'Varela Round', sans-serif;
+}
+html{
+  background-color: white;
+  overflow: hidden;
+}
+#welcome{
+  margin-bottom:10px;
+  color:grey;
+}
+#chat{
+  height:360px; //will be 400px with padding
+  width:600px;
+  width:100%;
+  padding:20px;
+  background-color:#e6e6e6;
+  border-bottom: 1px solid grey;
+  overflow-y:scroll;
+}
+#write{
+  height:100px;
+  width:100%;
+  background-color:white;
+}
+#user-info{
+  width:82%;
+  float:left;
+  background-color:purple;
+  color:white;
+  font-size:12px;
+  padding:1%;
+  display:inline-block;
+}
+#send{
+  width:16%;
+  float:right;
+  cursor:pointer;
+  text-align: center;
+  background-color:green;
+  color:white;
+  font-size:12px;
+  border:none;
+  padding:1%;
+  display:inline-block;
+  outline:none;
+}
+#send:hover{
+  background-color:darkgreen;
+  transition: background-color 200ms linear;
+}
+#message{
+  resize: none;
+  font-size: 14px;
+  outline:none;
+  width:100%;
+  border:none;
+  padding:10px;
+  height:120px;
+}
+#disconnect{
+  cursor: pointer;
+  width:100%;
+  line-height:30px;
+  text-align: center;
+  background-color:red;
+  color:white;
+  font-size:12px;
+  border:none;
+  display:inline-block;
+}
+#disconnect:hover{
+  background-color:darkred;
+  transition: background-color 200ms linear;
+}
+.chat-message{
+  background-color:#8c8c8c;
+  font-size: 11px;
+  border-radius: 7px;
+  overflow: hidden;
+  color:white;
+  max-width:300px;
+  margin-bottom:5px;
+}
+.chat-user{
+  background-color:#b300b3;
+  padding:5px;
+}
+.chat-text{
+  padding:5px;
+}
+.chat-date{
+  text-align:right;
+  color:#333333;
+  padding:5px;
+  padding-top:0;
+}

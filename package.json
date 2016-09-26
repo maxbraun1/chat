@@ -1,0 +1,16 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "Simple chatting application",
+  "main": "index.js",
+  "scripts": {
+    "start":"electron ."
+  },
+  "dependencies": {
+    "express":"*",
+    "electron":"*",
+    "socket.io":"*"
+  },
+  "author": "Max Braun",
+  "license": "ISC"
+}
