@@ -1,8 +1,3 @@
-//var app = require('express')();
-//var server = require('http').createServer(app);
-//var io = require('socket.io')(server);
-//server.listen(3000);
-
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
@@ -11,12 +6,13 @@ var io = require('socket.io').listen(server);
 users = [];
 connections = [];
 
-server.listen(process.env.PORT || 3000, "localhost");
+server.listen(process.env.PORT || 80, "localhost");
 console.log("Server running on "+process.env.PORT);
+console.log("Updated...");
 
-/* app.get('/', function(req,res){
+app.get('/', function(req,res){
   res.sendFile(__dirname+"/index.html");
-}); */
+});
 
 io.sockets.on('connection', function(socket){
   connections.push(socket);
