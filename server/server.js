@@ -12,7 +12,7 @@ users = [];
 connections = [];
 
 server.listen(process.env.PORT || 3000, "localhost");
-console.log("Server running...");
+console.log("Server running on "+process.env.PORT);
 
 /* app.get('/', function(req,res){
   res.sendFile(__dirname+"/index.html");
