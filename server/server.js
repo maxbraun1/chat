@@ -6,13 +6,13 @@ var io = require('socket.io').listen(server);
 users = [];
 connections = [];
 
-server.listen(process.env.PORT || 80, "localhost");
-console.log("Server running on "+process.env.PORT);
+server.listen(3000);
+console.log("Server running on ");
 console.log("Updated...");
 
-app.get('/', function(req,res){
+/* app.get('/', function(req,res){
   res.sendFile(__dirname+"/index.html");
-});
+}); */
 
 io.sockets.on('connection', function(socket){
   connections.push(socket);
